@@ -6,15 +6,16 @@
 
 <h3 align="center"><a href="README.md">简体中文</a> &nbsp;·&nbsp; English</h3>
 
-<p align="center"><b>A capture entry for DeepSeek Harness</b><br>Select a region, annotate the important parts, and the image drops into the composer draft; it brings its own capture and does not need the system screenshot tool.<br>Windows only.</p>
+<p align="center"><b>A capture entry for DeepSeek Harness</b><br>Select a region, annotate the important parts, and the image drops into the composer draft.</p>
 
-## Why this plugin
+## For AI agents
 
-Slim builds of Windows (N editions, LTSC and similar) remove the built-in screenshot tool, which leaves no way to capture the screen.
+**If you are an AI installing, configuring or fixing this project, read these two files first:**
 
-So this plugin brings its own capture: press the shortcut or click the camera, a native full-screen window opens, drag the region you want to explain, draw a few marks, and Enter turns it into a draft attachment — capture → annotate → draft in one step.
+- [AI-INSTALL.md](AI-INSTALL.md) — install and wiring, hot-reload vs restart, and how to verify.
+- [AI-TROUBLESHOOTING.md](AI-TROUBLESHOOTING.md) — symptom-driven self-checks and fixes (shortcut, capture window, focus, log locations).
 
-The annotation surface is a **separate native window**, not a page overlay, so there is no title bar, no taskbar on top, and your window is never resized. Capture uses DSH's own FFI (koffi → GDI) rather than launching PowerShell.
+Quick facts: Windows-only DSH bundle; plugin id `dsh-screenshot`; host half `index.js`; capture overlay `lib/overlay.js` (reloaded on every capture); global shortcut `lib/hotkey.js`.
 
 ## Features
 

@@ -6,15 +6,16 @@
 
 <h3 align="center">简体中文 &nbsp;·&nbsp; <a href="README-en.md">English</a></h3>
 
-<p align="center"><b>给 DeepSeek Harness 加一个截图入口</b><br>框选区域、标注重点，图片直接进输入框草稿；自带抓屏，不依赖系统截图工具。<br>仅支持 Windows。</p>
+<p align="center"><b>给 DeepSeek Harness 加一个截图入口</b><br>框选区域、标注重点，图片直接进输入框草稿。</p>
 
-## 为什么做这个插件
+## 给 AI 的入口
 
-Windows 的精简版（N 版、LTSC 等）去掉了系统自带的截图工具，截屏无从下手。
+**如果你是一个 AI，要安装、配置或修复这个项目，先读下面两个文件：**
 
-所以这个插件自带抓屏：按快捷键或点相机，弹出一个原生全屏窗口，框选要表达的区域，画几笔重点，回车就是一张草稿附件——「截图 → 标注 → 进草稿」一步到位。
+- [AI-INSTALL.md](AI-INSTALL.md) —— 安装与接线、热重载与重启的区别、装完怎么验证。
+- [AI-TROUBLESHOOTING.md](AI-TROUBLESHOOTING.md) —— 常见故障的自查与修复步骤（快捷键、截图窗口、焦点、日志位置）。
 
-标注界面是**独立的原生窗口**，不是套在页面里的遮罩，所以没有标题栏、没有任务栏遮挡，也不改你的窗口大小；抓屏直接用 DSH 自带的 FFI（koffi 调 GDI），不启动 PowerShell。
+速查：Windows-only 的 DSH bundle；插件 id `dsh-screenshot`；宿主 `index.js`；截图覆盖层 `lib/overlay.js`（每次截图重新加载）；全局快捷键 `lib/hotkey.js`。
 
 ## 特性
 
