@@ -54,4 +54,6 @@ MIT — see [LICENSE](LICENSE).
 
 ## Disclaimer
 
-**This project was generated entirely by AI, with no human involvement.**
+**This project was generated entirely by AI.**
+
+[![](https://img.shields.io/badge/powered_by-dsh-4D6BFE?style=flat-square&logo=deepseek&logoColor=white)](https://github.com/deepseek-ai/deepseek-harness)
