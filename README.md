@@ -4,6 +4,8 @@
 
 **仅支持 Windows。**
 
+[English](README-en.md)
+
 ## 安装
 
 设置 → 插件 → 添加插件，选本目录，刷新页面。
@@ -34,7 +36,3 @@ MIT，见 [LICENSE](LICENSE)。
 ## 声明
 
 **本项目完全由 AI 生成，没有任何人工编写或修改。**
-
----
-
-[安装](#安装) · [使用](#使用) · [限制](#限制) · [License](LICENSE) · [English](README-en.md) · **简体中文**
