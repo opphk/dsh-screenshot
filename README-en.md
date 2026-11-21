@@ -38,6 +38,7 @@ Settings → Plugins → Add plugin, pick this folder, refresh the page.
 | Rectangle / ellipse / arrow / pen / text / mosaic | Annotate |
 | `Enter` / ✓ | Insert into composer (not sent) |
 | Copy button | Copy to clipboard, not inserted |
+| Shortcut capture | Captures the screen as-is; after `Enter` the image goes to the **clipboard** (paste with `Ctrl+V`) |
 | `Esc` / right-click / ✕ | Cancel |
 | `Ctrl+Z` | Undo |
 | "Hide this window" menu | Button only: minimize the Harness window before capturing. The shortcut captures the screen as-is |
@@ -46,7 +47,7 @@ Settings → Plugins → Add plugin, pick this folder, refresh the page.
 
 - Windows only.
 - Shortcut is fixed at `Ctrl+Alt+Q` with no settings entry; a free fallback is chosen if taken.
-- The image goes into the draft only — it is not saved to the workspace. The shortcut captures the screen as-is and never hides a window ("hide this window" applies to the camera button only).
+- The image goes into the draft only — it is not saved to the workspace. The shortcut captures the screen as-is and never hides a window ("hide this window" applies to the camera button only); after `Enter` the shortcut result goes to the clipboard.
 
 ## License
 

@@ -82,7 +82,7 @@ export function apply(ctx) {
    * cancelled, 3 it could not write. A cancel is a normal outcome, not an
    * error, so it is reported as `cancelled` rather than thrown.
    */
-  function runOverlay(includeSelf) {
+  function runOverlay(includeSelf, options = {}) {
     return new Promise((resolve, reject) => {
       const directory = mkdtemp(join(tmpdir(), 'dsh-screenshot-')).catch(() => null);
       directory.then((dir) => {
@@ -93,6 +93,8 @@ export function apply(ctx) {
         const output = join(dir, 'shot.png');
         const args = [overlayScript, output];
         if (includeSelf) args.push('--include-self');
+        // Shortcut captures confirm into the clipboard; see the press handler below.
+        if (options.clipboard === true) args.push('--clipboard');
 
         const child = spawn(process.execPath, args, {
           // ELECTRON_RUN_AS_NODE keeps the child a plain Node process, which is
@@ -256,8 +258,12 @@ export function apply(ctx) {
              * shortcut means "capture what I am looking at", so the overlay runs with
              * `includeSelf` and takes the frame directly. The button path, which runs from
              * inside the Harness window, is the one that hides it.
+             *
+             * `clipboard: true` is what makes the capture useful from another app: there
+             * is no composer request to insert into, so the confirm copies the image to
+             * the system clipboard instead of writing a file (overlay exits 4).
              */
-            void runOverlay(true).then((result) => {
+            void runOverlay(true, { clipboard: true }).then((result) => {
               if (result.error !== undefined) console.error('[dsh-screenshot] hotkey capture failed:', result.error);
             });
           }
