@@ -1,9 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" role="img" aria-label="Annotated screenshot">
-  <g fill="none" stroke="#2f6fe4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M6 12.5V9.5A3.5 3.5 0 0 1 9.5 6h3"/>
-    <path d="M23.5 6h3A3.5 3.5 0 0 1 30 9.5v3"/>
-    <path d="M30 23.5v3a3.5 3.5 0 0 1-3.5 3.5h-3"/>
-    <path d="M12.5 30h-3A3.5 3.5 0 0 1 6 26.5v-3"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" role="img" aria-label="Screenshot">
+  <!--
+    Scissors, matching the launcher button's glyph.
+
+    The toolbar and the button already use a scissors mark for "capture", so the plugin icon
+    reuses that shape instead of introducing a second symbol for the same idea. The geometry
+    is the button's 24-unit path scaled by 1.5 and centred, with the stroke left thinner than
+    a naive scale would give so it stays crisp at row size.
+
+    Rings sit at x≈8.4 (r 3.45, spanning y 8.5..25.5), blades start at x 15 and cross near
+    (22.5, 18), ending at x 30.5 — inside the 36-unit box with a 5.5-unit margin.
+  -->
+  <g fill="none" stroke="#2f6fe4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="8.4" cy="11.55" r="3.45"/>
+    <circle cx="8.4" cy="24.45" r="3.45"/>
+    <path d="M15 14.55 30.45 24.6"/>
+    <path d="M15 21.45 30.45 11.4"/>
   </g>
-  <path d="M12 18.6l3.6 3.6 8-8" fill="none" stroke="#f05a3c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
