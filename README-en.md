@@ -1,10 +1,12 @@
-# dsh-screenshot
+<p align="center">
+  <img src="icon.svg" width="96" height="96" alt="dsh-screenshot">
+</p>
+
+<h1 align="center">dsh-screenshot</h1>
 
 <h3 align="center"><a href="README.md">简体中文</a> &nbsp;·&nbsp; English</h3>
 
-Native annotated-screenshot plugin for DeepSeek Harness: open a full-screen window, select a region, annotate it, press Enter to insert the selection into the composer.
-
-**Windows only.**
+<p align="center"><b>Native annotated-screenshot plugin for DeepSeek Harness</b><br>Open a full-screen window, select a region, annotate it, press Enter to insert it into the composer.<br>Windows only.</p>
 
 ## Install
 

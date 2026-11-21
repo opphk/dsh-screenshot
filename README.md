@@ -1,10 +1,12 @@
-# dsh-screenshot · 截图标注
+<p align="center">
+  <img src="icon.svg" width="96" height="96" alt="dsh-screenshot">
+</p>
+
+<h1 align="center">dsh-screenshot · 截图标注</h1>
 
 <h3 align="center">简体中文 &nbsp;·&nbsp; <a href="README-en.md">English</a></h3>
 
-给 DeepSeek Harness 的原生截图标注插件：弹全屏窗口，框选、标注，回车把选区送进输入框。
-
-**仅支持 Windows。**
+<p align="center"><b>给 DeepSeek Harness 的原生截图标注插件</b><br>弹全屏窗口，框选、标注，回车把选区送进输入框。<br>仅支持 Windows。</p>
 
 ## 安装
 
