@@ -4,8 +4,6 @@ Native annotated-screenshot plugin for DeepSeek Harness: open a full-screen wind
 
 **Windows only.**
 
-[中文](README.md)
-
 ## Install
 
 Settings → Plugins → Add plugin, pick this folder, refresh the page.
@@ -36,3 +34,10 @@ MIT, see [LICENSE](LICENSE).
 ## Disclaimer
 
 **This project was generated entirely by AI, with no human involvement.**
+
+---
+
+<p align="center">
+  <kbd>English</kbd>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="README.md"><kbd>简体中文</kbd></a>
+</p>
+
