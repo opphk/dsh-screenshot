@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" role="img" aria-label="Screenshot">
   <!--
-    Scissors, matching the launcher button's glyph.
+    Scissors, standing upright — the same mark the launcher button and the toolbar use.
 
-    The toolbar and the button already use a scissors mark for "capture", so the plugin icon
-    reuses that shape instead of introducing a second symbol for the same idea. The geometry
-    is the button's 24-unit path scaled by 1.5 and centred, with the stroke left thinner than
-    a naive scale would give so it stays crisp at row size.
+    The button's glyph is horizontal (rings left, blades right); here it is the same geometry
+    rotated 90° clockwise so the silhouette is tall, which sits better in the square tile the
+    Plugin Manager draws. Every coordinate below is the 24-unit button path scaled by 1.5,
+    centred, then rotated: (x, y) → (36 − y, x).
 
-    Rings sit at x≈8.4 (r 3.45, spanning y 8.5..25.5), blades start at x 15 and cross near
-    (22.5, 18), ending at x 30.5 — inside the 36-unit box with a 5.5-unit margin.
+    Rings sit at y≈8.4 (r 3.45, spanning x 8.1..27.9), blades start at y 15 and cross near
+    (18, 22.5), ending at y 30.45 — inside the box with a 5.5-unit margin.
   -->
   <g fill="none" stroke="#2f6fe4" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="8.4" cy="11.55" r="3.45"/>
-    <circle cx="8.4" cy="24.45" r="3.45"/>
-    <path d="M15 14.55 30.45 24.6"/>
-    <path d="M15 21.45 30.45 11.4"/>
+    <circle cx="24.45" cy="8.4" r="3.45"/>
+    <circle cx="11.55" cy="8.4" r="3.45"/>
+    <path d="M21.45 15 11.4 30.45"/>
+    <path d="M14.55 15 24.6 30.45"/>
   </g>
 </svg>
