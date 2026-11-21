@@ -2,7 +2,7 @@
 
 本文件面向 **AI / 自动化代理**：如何把 `dsh-screenshot` 装进 DeepSeek Harness（DSH），以及改完代码后怎么让它生效、怎么验证。
 
-> 面向人类的简明说明见 [README.md](README.md)。
+> 面向人类的简明说明见 [README.md](../README.md)。
 
 ## 1. 前置条件
 

@@ -47,15 +47,13 @@ for (const needed of ['index.js', 'client.js', 'cordis.patch.yml', 'icon.svg']) 
   check(`files ships ${needed}`, manifest.files.includes(needed), JSON.stringify(manifest.files));
 }
 /*
- * No packaged `docs` folder.
- *
- * The bundle used to ship a DETAIL image, but that preview went stale (it predated the
- * copy button, carried `<text>` the detail renderer forbids, and was drawn at the wrong
- * canvas size). The description alone covers the feature, so the detail document and its
- * images are gone and the details page falls back to the README.
+ * `docs/` now holds the AI install / troubleshooting guides, and must ship with the bundle.
+ * (It no longer contains a detail preview image — that was dropped as stale.)
  */
-check('does not ship a stale docs folder', !manifest.files.includes('docs'),
+check('ships the docs folder with the AI guides', manifest.files.includes('docs'),
   JSON.stringify(manifest.files));
+check('the AI guides exist',
+  existsSync(join(root, 'docs', 'AI-INSTALL.md')) && existsSync(join(root, 'docs', 'AI-TROUBLESHOOTING.md')));
 
 console.log('patch');
 check('patch inserts exactly one row', (patch.match(/- insert:/g) || []).length === 1);

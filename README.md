@@ -12,8 +12,8 @@
 
 **如果你是一个 AI，要安装、配置或修复这个项目，先读下面两个文件：**
 
-- [AI-INSTALL.md](AI-INSTALL.md) —— 安装与接线、热重载与重启的区别、装完怎么验证。
-- [AI-TROUBLESHOOTING.md](AI-TROUBLESHOOTING.md) —— 常见故障的自查与修复步骤（快捷键、截图窗口、焦点、日志位置）。
+- [docs/AI-INSTALL.md](docs/AI-INSTALL.md) —— 安装与接线、热重载与重启的区别、装完怎么验证。
+- [docs/AI-TROUBLESHOOTING.md](docs/AI-TROUBLESHOOTING.md) —— 常见故障的自查与修复步骤（快捷键、截图窗口、焦点、日志位置）。
 
 速查：Windows-only 的 DSH bundle；插件 id `dsh-screenshot`；宿主 `index.js`；截图覆盖层 `lib/overlay.js`（每次截图重新加载）；全局快捷键 `lib/hotkey.js`。
 

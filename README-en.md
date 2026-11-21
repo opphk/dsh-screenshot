@@ -12,8 +12,8 @@
 
 **If you are an AI installing, configuring or fixing this project, read these two files first:**
 
-- [AI-INSTALL.md](AI-INSTALL.md) — install and wiring, hot-reload vs restart, and how to verify.
-- [AI-TROUBLESHOOTING.md](AI-TROUBLESHOOTING.md) — symptom-driven self-checks and fixes (shortcut, capture window, focus, log locations).
+- [docs/AI-INSTALL.md](docs/AI-INSTALL.md) — install and wiring, hot-reload vs restart, and how to verify.
+- [docs/AI-TROUBLESHOOTING.md](docs/AI-TROUBLESHOOTING.md) — symptom-driven self-checks and fixes (shortcut, capture window, focus, log locations).
 
 Quick facts: Windows-only DSH bundle; plugin id `dsh-screenshot`; host half `index.js`; capture overlay `lib/overlay.js` (reloaded on every capture); global shortcut `lib/hotkey.js`.
 
