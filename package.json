@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "type": "module",
-  "description": "Annotated screenshot for DeepSeek Harness: capture the screen in a native window, mark it up, and drop the selection straight into the chat box. Windows only.",
+  "description": "给 DeepSeek Harness 补上截图与标注（Windows）：原生全屏窗口框选，画矩形/椭圆/箭头/画笔/文字/马赛克，Enter 进输入框草稿，复制按钮或快捷键确认进剪贴板；自带抓屏，不依赖系统截图工具。",
   "license": "MIT",
   "author": "opphk",
   "repository": {
