@@ -6,7 +6,7 @@
 
 <h3 align="center">简体中文 &nbsp;·&nbsp; <a href="README-en.md">English</a></h3>
 
-<p align="center"><b>给 DeepSeek Harness 的原生截图标注插件</b><br>弹全屏窗口，框选、标注，回车把选区送进输入框。<br>仅支持 Windows。</p>
+<p align="center"><b>给 DeepSeek Harness 窗口补上手动截图</b><br>精简版窗口没有截图功能，这个插件把它补上：弹全屏窗口，框选、标注，回车把选区送进输入框。<br>仅支持 Windows。</p>
 
 ## 安装
 

@@ -6,7 +6,7 @@
 
 <h3 align="center"><a href="README.md">简体中文</a> &nbsp;·&nbsp; English</h3>
 
-<p align="center"><b>Native annotated-screenshot plugin for DeepSeek Harness</b><br>Open a full-screen window, select a region, annotate it, press Enter to insert it into the composer.<br>Windows only.</p>
+<p align="center"><b>Manual screenshot capture for the DeepSeek Harness window</b><br>The slim build ships without a capture feature; this plugin adds one: open a full-screen window, select a region, annotate it, press Enter to insert it into the composer.<br>Windows only.</p>
 
 ## Install
 
