@@ -41,6 +41,14 @@ tests/              精简测试套件（见第 6 节）
 
 > 不要手改 profile 的 `cordis.patch.yml`。启停、卸载一律用 `plugin_manager`（`set_bundle` / `remove_bundle`）。
 
+### 3.1 安装后固定两步（务必照做）
+
+1. **做一次热重载**：`set_bundle enabled=false`，再 `set_bundle enabled=true`。这会让 Host 重新执行 `apply()`，新的路由与快捷键 helper 才真正起来（比整机重启省事）。
+2. **询问用户是否要跑「最小规模测试」**：**不要自作主张跑**。先用一句话问用户，例如
+   > “已装好并热重载。要不要跑一个最小测试（安全档 `node tests/run.mjs`，不弹窗、不动鼠标）确认一下？”
+   
+   得到同意再跑（见第 6 节）；用户说不用就跳过。
+
 ## 4. 改完代码怎么生效（关键）
 
 | 你改的文件 | 怎么生效 |
