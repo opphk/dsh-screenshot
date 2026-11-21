@@ -1,5 +1,7 @@
 # dsh-screenshot
 
+<h3 align="center">English &nbsp;·&nbsp; <a href="README.md">简体中文</a></h3>
+
 Native annotated-screenshot plugin for DeepSeek Harness: open a full-screen window, select a region, annotate it, press Enter to insert the selection into the composer.
 
 **Windows only.**
@@ -34,10 +36,4 @@ MIT, see [LICENSE](LICENSE).
 ## Disclaimer
 
 **This project was generated entirely by AI, with no human involvement.**
-
----
-
-<p align="center">
-  <kbd>English</kbd>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="README.md"><kbd>简体中文</kbd></a>
-</p>
 

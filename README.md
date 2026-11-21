@@ -1,5 +1,7 @@
 # dsh-screenshot · 截图标注
 
+<h3 align="center"><a href="README-en.md">English</a> &nbsp;·&nbsp; 简体中文</h3>
+
 给 DeepSeek Harness 的原生截图标注插件：弹全屏窗口，框选、标注，回车把选区送进输入框。
 
 **仅支持 Windows。**
@@ -34,10 +36,4 @@ MIT，见 [LICENSE](LICENSE)。
 ## 声明
 
 **本项目完全由 AI 生成，没有任何人工编写或修改。**
-
----
-
-<p align="center">
-  <a href="README-en.md"><kbd>English</kbd></a>&nbsp;&nbsp;·&nbsp;&nbsp;<kbd>简体中文</kbd>
-</p>
 
