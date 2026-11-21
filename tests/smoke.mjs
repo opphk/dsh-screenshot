@@ -85,7 +85,8 @@ check('the window is put back', /restoreOwnWindow/.test(overlay));
  * taken over another app leaves the Harness window in front.
  */
 check('it restores the previous foreground window on exit',
-  /GetForegroundWindow/.test(overlay) && /SetForegroundWindow\(foregroundBefore\)/.test(overlay));
+  /GetForegroundWindow/.test(overlay) && /function restoreForeground/.test(overlay)
+  && /AttachThreadInput/.test(overlay));
 check('it writes PNG itself', /deflateSync/.test(overlay));
 check('cancel exits 2', /process\.exit\(2\)|exitWith\(2\)/.test(overlay));
 check('selection is exported at native size', /buildResult/.test(overlay));
