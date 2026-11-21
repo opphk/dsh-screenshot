@@ -1,0 +1,54 @@
+{
+  "name": "dsh-screenshot",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Annotated screenshot for DeepSeek Harness: capture the screen in a native window, mark it up, and drop the selection straight into the chat box. Windows only.",
+  "license": "MIT",
+  "author": "opphk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opphk/dsh-screenshot.git"
+  },
+  "homepage": "https://github.com/opphk/dsh-screenshot#readme",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "screenshot",
+    "annotation",
+    "capture"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README-en.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node tests/run.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

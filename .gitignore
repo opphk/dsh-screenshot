@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Test and build output
+*.log
+coverage/
+dist/
+
+# Editors and OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Local scratch
+*.tmp
+_probe.js

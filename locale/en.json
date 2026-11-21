@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Annotated screenshot",
+    "description": "Capture, annotate, and drop straight into the chat box. Windows only: the overlay is a Win32/GDI window, so on macOS or Linux the bundle loads but every capture returns 501 and nothing opens. Install via Settings → Plugins → Add plugin (or plugin_manager action=install_bundle), then refresh the page once. Use it by clicking the camera button at the left of the composer, or by pressing Ctrl+Alt+Q from anywhere — the shortcut is registered system-wide and is fixed at Ctrl+Alt+Q, with no setting to change it. Drag a region, mark it up with rectangles, ellipses, arrows, a pen, text, or mosaic, then press Enter to insert exactly that region into the composer as a draft attachment (it is not sent). The copy button puts the capture on the clipboard without inserting it. The drop-down menu sets whether the Harness window is included, and that choice applies to both the button and the shortcut."
+  }
+}
