@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="icon.svg" width="96" height="96" alt="dsh-screenshot">
+  <img src="../icon.svg" width="96" height="96" alt="dsh-screenshot">
 </p>
 
 <h1 align="center">dsh-screenshot</h1>
 
-<h3 align="center"><a href="README.md">简体中文</a> &nbsp;·&nbsp; English</h3>
+<h3 align="center"><a href="../README.md">简体中文</a> &nbsp;·&nbsp; English</h3>
 
 <p align="center"><b>A capture entry for DeepSeek Harness</b><br>Select a region, annotate the important parts, and the image drops into the composer draft.</p>
 
@@ -12,8 +12,8 @@
 
 **If you are an AI installing, configuring or fixing this project, read these two files first:**
 
-- [docs/AI-INSTALL.md](docs/AI-INSTALL.md) — install and wiring, hot-reload vs restart, and how to verify.
-- [docs/AI-TROUBLESHOOTING.md](docs/AI-TROUBLESHOOTING.md) — symptom-driven self-checks and fixes (shortcut, capture window, focus, log locations).
+- [AI-INSTALL.md](AI-INSTALL.md) — install and wiring, hot-reload vs restart, and how to verify.
+- [AI-TROUBLESHOOTING.md](AI-TROUBLESHOOTING.md) — symptom-driven self-checks and fixes (shortcut, capture window, focus, log locations).
 
 Quick facts: Windows-only DSH bundle; plugin id `dsh-screenshot`; host half `index.js`; capture overlay `lib/overlay.js` (reloaded on every capture); global shortcut `lib/hotkey.js`.
 
@@ -52,7 +52,7 @@ Settings → Plugins → Add plugin, pick this folder, refresh the page.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [../LICENSE](../LICENSE).
 
 ## Disclaimer
 

@@ -33,7 +33,6 @@
     "locale/*.json",
     "icon.svg",
     "README.md",
-    "README-en.md",
     "docs",
     "LICENSE",
     "tests"

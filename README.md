@@ -4,7 +4,7 @@
 
 <h1 align="center">dsh-screenshot · 截图标注</h1>
 
-<h3 align="center">简体中文 &nbsp;·&nbsp; <a href="README-en.md">English</a></h3>
+<h3 align="center">简体中文 &nbsp;·&nbsp; <a href="docs/README-en.md">English</a></h3>
 
 <p align="center"><b>给 DeepSeek Harness 加一个截图入口</b><br>框选区域、标注重点，图片直接进输入框草稿。</p>
 
