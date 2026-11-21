@@ -23,12 +23,13 @@ Settings → Plugins → Add plugin, pick this folder, refresh the page.
 | Copy button | Copy to clipboard, not inserted |
 | `Esc` / right-click / ✕ | Cancel |
 | `Ctrl+Z` | Undo |
-| "Hide this window" menu | Whether the Harness window is included (shared by button and shortcut) |
+| "Hide this window" menu | Affects the button only: minimize the Harness window before capturing. The shortcut captures the screen as-is |
 
 ## Limitations
 
 - Windows only.
 - Shortcut is fixed at `Ctrl+Alt+Q` with no settings entry; a free fallback is chosen if taken.
+- The shortcut captures the screen as-is and never hides a window; "hide this window" applies to the camera button only (minimize, then capture).
 - "Hide this window" moves the window off-screen and back.
 
 ## License

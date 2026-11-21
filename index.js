@@ -248,15 +248,16 @@ export function apply(ctx) {
             settle({ ok: false, error: text.slice(6) });
           } else if (text === 'press') {
             /*
-             * The shortcut fired while another app had focus. The overlay has to come
-             * to the front, which it does by itself: it is a topmost full-screen
-             * window, so simply running it is enough.
+             * The shortcut just grabs the screen as it is.
              *
-             * `includeSelfPreference` mirrors the page's own setting. Hard-coding `false`
-             * here was the bug: the shortcut always stepped the Harness window aside, so
-             * the capture never contained it even when the user had asked for it.
+             * It does not try to work out whether the Harness window is in front or to
+             * hide it: that judgement is what caused the Harness window to be brought
+             * forward on a shortcut capture taken over another app. Pressing the global
+             * shortcut means "capture what I am looking at", so the overlay runs with
+             * `includeSelf` and takes the frame directly. The button path, which runs from
+             * inside the Harness window, is the one that hides it.
              */
-            void runOverlay(includeSelfPreference).then((result) => {
+            void runOverlay(true).then((result) => {
               if (result.error !== undefined) console.error('[dsh-screenshot] hotkey capture failed:', result.error);
             });
           }
