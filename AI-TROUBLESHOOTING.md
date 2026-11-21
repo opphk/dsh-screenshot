@@ -8,6 +8,9 @@
 # 焦点决策日志：记录每次截图“拍照瞬间前台是谁、要移到哪个窗口、恢复结果”
 Get-Content "$env:TEMP\dsh-screenshot-focus.log" -Tail 40
 
+# 失败日志：Host 侧记录退出码、临时文件是否存在、覆盖层 stderr（“截图失败”先看这个）
+Get-Content "$env:TEMP\dsh-screenshot-error.log" -Tail 40
+
 # 快捷键 helper 是否在跑（注意：进程名是 DeepSeek Harness.exe，不是 node.exe）
 Get-CimInstance Win32_Process | ? { $_.CommandLine -match 'hotkey\.js' } |
   Select-Object ProcessId, CommandLine
@@ -63,6 +66,17 @@ Get-CimInstance Win32_Process | ? { $_.CommandLine -match 'hotkey\.js' } |
 
 - **501**：当前不是 Windows（`process.platform !== 'win32'`），或找不到 `lib/overlay.js`。本插件仅 Windows。
 - **404**：路由没注册。检查插件是否 `enabled: true`；`index.js` 是否抛错（看 Host 日志）；必要时关→开插件。
+
+## 5.1 报错 “the screenshot window produced no image”
+
+这句的意思是：覆盖层**退出码 0**，但 Host 在临时目录里读不到图片。历史上的真凶是**消息循环提前退出**：
+
+- 覆盖层退出码是契约：`0` = 已写出 PNG、`2` = 取消、`3` = 写文件/复制失败、`4` = 已复制到剪贴板（无文件）。
+- 确认/复制后要先显示成功提示，再由**窗口定时器**用正确退出码关闭。若消息循环一看到 `state.done` 就 `exitWith(0)`，复制路径就会变成「exit 0 且没有文件」→ Host 报这句。
+- 现行实现：`while (!state.done || feedbackText !== null && Date.now() < feedbackDeadline)`，最终 `exitWith(feedbackText !== null ? feedbackExitCode : ...)`。**改这里要保住退出码契约。**
+- 另：Host 读临时文件有几次重试（Windows 上刚写的文件可能被杀软/索引短暂占用）。
+
+先看 `%TEMP%\dsh-screenshot-error.log`：里面记录退出码、文件是否存在、stderr。
 
 ## 6. 改了代码但没生效
 

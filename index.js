@@ -14,7 +14,7 @@
  * clean up the temporary file.
  */
 import { spawn } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { appendFileSync, existsSync, statSync } from 'node:fs';
 import { mkdtemp, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
@@ -32,6 +32,29 @@ const hotkeyScript = join(here, 'lib', 'hotkey.js');
 
 /** A user who leaves the overlay open is still allowed to; this only guards a hang. */
 const OVERLAY_TIMEOUT_MS = 5 * 60_000;
+
+/**
+ * Append a diagnostic line for a capture that went wrong.
+ *
+ * When a capture fails the page only shows a short toast; the details (exit code, whether
+ * the temporary file existed, the overlay's stderr) are what make it fixable, so they go to
+ * a log next to the temp directory. Rotated by size so it cannot grow without bound.
+ *
+ * @param {string} message one line of context
+ */
+function logIssue(message) {
+  try {
+    const file = join(tmpdir(), 'dsh-screenshot-error.log');
+    try {
+      if (statSync(file).size > 64 * 1024) appendFileSync(file, '');
+    } catch {
+      /* first write */
+    }
+    appendFileSync(file, `${new Date().toISOString()} ${message}\n`);
+  } catch {
+    /* diagnostics must never break capture */
+  }
+}
 
 /**
  * The system-wide shortcut.
@@ -128,6 +151,7 @@ export function apply(ctx) {
         });
 
         child.on('error', (error) => {
+          logIssue(`overlay could not start: ${error.message}`);
           finish({ cancelled: false, error: error.message });
         });
 
@@ -149,13 +173,31 @@ export function apply(ctx) {
             return;
           }
           if (code !== 0) {
+            logIssue(`overlay exited ${String(code)} stderr=${JSON.stringify(stderr.trim())}`);
             await finish({ cancelled: false, error: stderr.trim() || `the screenshot window exited with code ${String(code)}` });
             return;
           }
-          // Read before the temporary directory is removed.
-          const bytes = await readFile(output).catch(() => null);
+          /*
+           * Read before the temporary directory is removed — and retry.
+           *
+           * The overlay has already closed by now, so the file exists, but on Windows a
+           * freshly written file can be briefly locked (antivirus, search indexer), which
+           * made `readFile` come back empty and surfaced as a misleading "produced no
+           * image" failure. A few short retries turn that transient into a normal success.
+           */
+          let bytes = null;
+          for (let attempt = 0; attempt < 5; attempt += 1) {
+            bytes = await readFile(output).catch(() => null);
+            if (bytes !== null && bytes.length >= 64) break;
+            await new Promise((r) => setTimeout(r, 60));
+          }
           if (bytes === null || bytes.length < 64) {
-            await finish({ cancelled: false, error: 'the screenshot window produced no image' });
+            const detail = stderr.trim();
+            logIssue(`overlay exited 0 but the image is missing: path=${output} exists=${existsSync(output)} stderr=${JSON.stringify(detail)}`);
+            await finish({
+              cancelled: false,
+              error: `the screenshot window produced no image${detail === '' ? '' : `: ${detail}`}`,
+            });
             return;
           }
           if (settled) return;
@@ -369,14 +411,17 @@ export function apply(ctx) {
       try {
         result = await runOverlay(includeSelf);
       } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        logIssue(`snap route threw: ${message}`);
         res.statusCode = 500;
         res.setHeader('content-type', 'text/plain; charset=utf-8');
         res.setHeader('cache-control', 'no-store');
-        res.end(`screenshot failed: ${error instanceof Error ? error.message : String(error)}`);
+        res.end(`screenshot failed: ${message}`);
         return;
       }
 
       if (result.error !== undefined) {
+        logIssue(`snap route failed: ${result.error}`);
         res.statusCode = 500;
         res.setHeader('content-type', 'text/plain; charset=utf-8');
         res.setHeader('cache-control', 'no-store');
