@@ -80,6 +80,12 @@ check('it pumps messages off the host thread', /PeekMessageW/.test(overlay));
 check('it grabs the desktop with GDI', /BitBlt/.test(overlay) && /GetDIBits/.test(overlay));
 check('it steps its own window aside unless asked to include it', /stepAsideOwnWindow/.test(overlay));
 check('the window is put back', /restoreOwnWindow/.test(overlay));
+/*
+ * Focus must go back to whoever had it before the overlay, otherwise a shortcut capture
+ * taken over another app leaves the Harness window in front.
+ */
+check('it restores the previous foreground window on exit',
+  /GetForegroundWindow/.test(overlay) && /SetForegroundWindow\(foregroundBefore\)/.test(overlay));
 check('it writes PNG itself', /deflateSync/.test(overlay));
 check('cancel exits 2', /process\.exit\(2\)|exitWith\(2\)/.test(overlay));
 check('selection is exported at native size', /buildResult/.test(overlay));
