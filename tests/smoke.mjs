@@ -180,7 +180,8 @@ check('the copy icon is a pair of sheets', /function drawCopyIcon/.test(overlay)
 check('copying writes CF_DIB, not PNG', /const CF_DIB = 8;/.test(overlay) && /SetClipboardData\(CF_DIB/.test(overlay));
 check('the clipboard block is filled by RtlMoveMemory', /RtlMoveMemory\(locked, koffi\.address\(block\), total\)/.test(overlay));
 check('the clipboard block is not freed after a successful set', /if \(stored === null \|\| stored === undefined\) \{[\s\S]{0,120}GlobalFree\(memory\)/.test(overlay));
-check('copy exits with its own code so nothing is inserted', /exitWith\(4\)/.test(overlay));
+check('copy exits with its own code so nothing is inserted',
+  /showFeedback\('✓ 已复制到剪贴板', 4\)/.test(overlay) && /exitWith\(feedbackExitCode\)/.test(overlay));
 check('the host reports a copy distinctly', /copied: true/.test(host) && /result\.copied === true/.test(host));
 check('the page stays silent on a copy', /response\.status === 204 \|\| response\.status === 202/.test(client));
 check('no call to an undefined solidRect', !/solidRect\(/.test(overlay));

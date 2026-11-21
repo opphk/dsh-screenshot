@@ -39,6 +39,7 @@ Settings → Plugins → Add plugin, pick this folder, refresh the page.
 | `Enter` / ✓ | Insert into composer (not sent) |
 | Copy button | Copy to clipboard, not inserted |
 | Shortcut capture | Captures the screen as-is; after `Enter` the image goes to the **clipboard** (paste with `Ctrl+V`) |
+| Confirmation | A short toast at the top centre: "✓ Added to draft" or "✓ Copied to clipboard", then it closes |
 | `Esc` / right-click / ✕ | Cancel |
 | `Ctrl+Z` | Undo |
 | "Hide this window" menu | Button only: minimize the Harness window before capturing. The shortcut captures the screen as-is |
